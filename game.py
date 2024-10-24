@@ -24,7 +24,7 @@ class Game:
                 print("Капитан, разместите лодку!")
                 pos = Position(int(input("x: ")), int(input("y: ")))
                 print("Так точно! Необходимо выбрать направление!")
-                dir = Direction(int(input("(Св: 1; Вс: 2; Юг: 3; Зп: 4): ")))
+                dir = Direction(int(input("(Св: 0; Вс: 1; Юг: 2; Зп: 3): ")))
 
                 self.field_player.placeShip(pos, dir)
             except PointOutOfBoundsError:
