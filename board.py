@@ -27,9 +27,9 @@ class Board:
         # Проверка на выход за пределы карты
         if dir == Direction.NORTH and Position.y - SHIP_SIZE < 0:
             raise ShipOutOfBoundsError
-        if dir == Direction.SOUTH and Position.y + SHIP_SIZE > BOARD_SIZE:
+        if dir == Direction.SOUTH and Position.y + SHIP_SIZE >= BOARD_SIZE:
             raise ShipOutOfBoundsError
-        if dir == Direction.EAST and Position.x + SHIP_SIZE > BOARD_SIZE:
+        if dir == Direction.EAST and Position.x + SHIP_SIZE >= BOARD_SIZE:
             raise ShipOutOfBoundsError
         if dir == Direction.WEST and Position.x - SHIP_SIZE < 0:
             raise ShipOutOfBoundsError
