@@ -25,13 +25,13 @@ class Board:
             raise ShipLimitError
 
         # Проверка на выход за пределы карты
-        if dir == Direction.NORTH and Position.y - SHIP_SIZE+1 < 0:
+        if dir == Direction.NORTH and pos.y - SHIP_SIZE + 1 < 0:
             raise ShipOutOfBoundsError
-        if dir == Direction.SOUTH and Position.y + SHIP_SIZE-1 >= BOARD_SIZE:
+        if dir == Direction.SOUTH and pos.y + SHIP_SIZE - 1 > BOARD_SIZE:
             raise ShipOutOfBoundsError
-        if dir == Direction.EAST and Position.x + SHIP_SIZE-1 >= BOARD_SIZE:
+        if dir == Direction.EAST and pos.x + SHIP_SIZE - 1 > BOARD_SIZE:
             raise ShipOutOfBoundsError
-        if dir == Direction.WEST and Position.x - SHIP_SIZE+1 < 0:
+        if dir == Direction.WEST and pos.x - SHIP_SIZE - 1 < 0:
             raise ShipOutOfBoundsError
 
         # Проверка на пересечение
@@ -142,7 +142,7 @@ class Board:
             for j in range(BOARD_SIZE):
 
                 if self.fog_matrix[i][j] == CellState.UNKNOWN:
-                    print("?", end=" ")
+                    print(".", end=" ")
                 elif self.fog_matrix[i][j] == CellState.MISS:
                     print("o", end=" ")
                 elif self.fog_matrix[i][j] == CellState.HIT:
