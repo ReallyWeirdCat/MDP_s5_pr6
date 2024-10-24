@@ -42,11 +42,11 @@ class Game:
 
         while not self.field_computer.isDead() + self.field_player.isDead():
 
-            self.field_player.printBoard()
-            self.field_computer.printFogBoard()
-
             if self.turn == 0:
                 try:
+                    self.field_player.printBoard()
+                    self.field_computer.printFogBoard()
+
                     print("Капитан, мы готовы атаковать позиции врага!")
                     pos = Position(int(input("x: ")), int(input("y: ")))
 
@@ -77,6 +77,9 @@ class Game:
                 print("Противник промахнулся!")
 
             self.turn = (self.turn + 1) % 2
+
+        self.field_player.printBoard()
+        self.field_computer.printBoard()
 
         if self.field_computer.isDead():
             print("Капитан, мы одержали победу!")

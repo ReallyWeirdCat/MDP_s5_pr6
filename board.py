@@ -40,10 +40,10 @@ class Board:
                 if self.matrix[pos.y - i][pos.x] == CellState.SHIP:
                     raise ShipCollisionError
             if dir == Direction.SOUTH:
-                if self.matrix[pos.y + i][pos.x] == CellState.SHIP:
+                if self.matrix[pos.y + i - 1][pos.x] == CellState.SHIP:
                     raise ShipCollisionError
             if dir == Direction.EAST:
-                if self.matrix[pos.y][pos.x + i] == CellState.SHIP:
+                if self.matrix[pos.y][pos.x + i - 1] == CellState.SHIP:
                     raise ShipCollisionError
             if dir == Direction.WEST:
                 if self.matrix[pos.y][pos.x - i] == CellState.SHIP:
@@ -96,7 +96,7 @@ class Board:
                 occupied = []
                 for i in range(BOARD_SIZE):
                     for j in range(BOARD_SIZE):
-                        if self.matrix[i][j] == CellState.SHIP:
+                        if self.getCellStatus(Position(i, j)) == CellState.SHIP:
                             occupied.append(Position(i, j))
 
                 if occupied:
