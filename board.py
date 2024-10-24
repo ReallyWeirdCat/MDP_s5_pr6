@@ -119,7 +119,9 @@ class Board:
             return False
 
     def printBoard(self):
-        for i in range(BOARD_SIZE):
+        print("  0 1 2 3 4 5 ")
+        for idx, i in enumerate(range(BOARD_SIZE)):
+            print(str(i) + " ", end="")
             for j in range(BOARD_SIZE):
 
                 if self.matrix[i][j] == CellState.EMPTY:
@@ -130,11 +132,13 @@ class Board:
                     print("X", end=" ")
                 elif self.matrix[i][j] == CellState.SHIP:
                     print("S", end=" ")
-
             print()
+        print("-"*BOARD_SIZE)
 
     def printFogBoard(self):
-        for i in range(BOARD_SIZE):
+        print("  0 1 2 3 4 5")
+        for idx, i in enumerate(range(BOARD_SIZE)):
+            print(str(i) + " ", end="")
             for j in range(BOARD_SIZE):
 
                 if self.fog_matrix[i][j] == CellState.UNKNOWN:
@@ -145,4 +149,5 @@ class Board:
                     print("X", end=" ")
                 elif self.fog_matrix[i][j] == CellState.SHIP:
                     print("S", end=" ")
-            print()
+            print("")
+        print("-"*BOARD_SIZE)

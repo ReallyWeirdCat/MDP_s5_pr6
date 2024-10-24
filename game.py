@@ -20,6 +20,8 @@ class Game:
 
         while self.field_player.ships_placed < SHIP_AMOUNT:
 
+            self.field_player.printBoard()
+
             try:
                 print("Капитан, разместите лодку!")
                 pos = Position(int(input("x: ")), int(input("y: ")))
