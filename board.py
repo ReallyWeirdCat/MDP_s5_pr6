@@ -25,17 +25,17 @@ class Board:
             raise ShipLimitError
 
         # Проверка на выход за пределы карты
-        if dir == Direction.NORTH and Position.y - SHIP_SIZE < 0:
+        if dir == Direction.NORTH and Position.y - SHIP_SIZE+1 < 0:
             raise ShipOutOfBoundsError
-        if dir == Direction.SOUTH and Position.y + SHIP_SIZE >= BOARD_SIZE:
+        if dir == Direction.SOUTH and Position.y + SHIP_SIZE-1 >= BOARD_SIZE:
             raise ShipOutOfBoundsError
-        if dir == Direction.EAST and Position.x + SHIP_SIZE >= BOARD_SIZE:
+        if dir == Direction.EAST and Position.x + SHIP_SIZE-1 >= BOARD_SIZE:
             raise ShipOutOfBoundsError
-        if dir == Direction.WEST and Position.x - SHIP_SIZE < 0:
+        if dir == Direction.WEST and Position.x - SHIP_SIZE+1 < 0:
             raise ShipOutOfBoundsError
 
         # Проверка на пересечение
-        for i in range(SHIP_SIZE):
+        for i in range(SHIP_SIZE-1):
             if dir == Direction.NORTH:
                 if self.matrix[pos.y - i][pos.x] == CellState.SHIP:
                     raise ShipCollisionError
