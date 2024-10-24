@@ -64,14 +64,14 @@ class Board:
         self.ship_cells += SHIP_SIZE
 
     def randomizeShips(self):
-        for i in range(SHIP_AMOUNT):
+        while self.ships_placed < SHIP_AMOUNT:
             try:
                 pos = Position.random()
                 dir = Direction(random.randint(0, 3))
 
                 self.placeShip(pos, dir)
             except Exception:
-                i -= 1
+                continue
 
     def getCellStatus(self, position):
         return self.matrix[position.y][position.x]

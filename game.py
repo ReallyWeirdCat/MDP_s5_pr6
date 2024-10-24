@@ -40,6 +40,9 @@ class Game:
 
         while not self.field_computer.isDead() + self.field_player.isDead():
 
+            self.field_player.printBoard()
+            self.field_computer.printFogBoard()
+
             if self.turn == 0:
                 try:
                     print("Капитан, мы готовы атаковать позиции врага!")
