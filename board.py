@@ -121,11 +121,28 @@ class Board:
     def printBoard(self):
         for i in range(BOARD_SIZE):
             for j in range(BOARD_SIZE):
-                print(self.matrix[i][j], end=" ")
+
+                if self.matrix[i][j] == CellState.EMPTY:
+                    print(".", end=" ")
+                elif self.matrix[i][j] == CellState.MISS:
+                    print("o", end=" ")
+                elif self.matrix[i][j] == CellState.HIT:
+                    print("X", end=" ")
+                elif self.matrix[i][j] == CellState.SHIP:
+                    print("S", end=" ")
+
             print()
 
     def printFogBoard(self):
         for i in range(BOARD_SIZE):
             for j in range(BOARD_SIZE):
-                print(self.fog_matrix[i][j], end=" ")
+
+                if self.fog_matrix[i][j] == CellState.UNKNOWN:
+                    print("?", end=" ")
+                elif self.fog_matrix[i][j] == CellState.MISS:
+                    print("o", end=" ")
+                elif self.fog_matrix[i][j] == CellState.HIT:
+                    print("X", end=" ")
+                elif self.fog_matrix[i][j] == CellState.SHIP:
+                    print("S", end=" ")
             print()
