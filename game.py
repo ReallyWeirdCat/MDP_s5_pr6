@@ -1,3 +1,4 @@
+import time
 from position import Position
 from direction import Direction
 from board import Board
@@ -67,6 +68,7 @@ class Game:
 
             else:
                 print("Противник атакует!")
+                time.sleep(2)
 
                 hit = self.field_player.randomAttack()
 
@@ -76,6 +78,8 @@ class Game:
 
                 print("Противник промахнулся!")
 
+            time.sleep(2)
+            print("\n"*100)
             self.turn = (self.turn + 1) % 2
 
         self.field_player.printBoard()
